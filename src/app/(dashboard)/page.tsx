@@ -8,7 +8,7 @@ const page = async () => {
   const user = await createUser({
     clerkId: "clerk_123456",
     username: "john_doe",
-    email_address: "john@example.com",
+    email: "john@example.com",
     name: "John Doe",
     avatar: "https://example.com/avatar.jpg",
   });

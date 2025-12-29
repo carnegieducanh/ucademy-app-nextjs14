@@ -13,7 +13,7 @@ type TMenuItem = {
 type TcreateUserParams = {
   clerkId: string;
   username: string;
-  email_address: string;
+  email: string;
   name?: string;
   avatar?: string;
 };
