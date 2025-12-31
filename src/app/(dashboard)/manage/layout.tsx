@@ -6,9 +6,7 @@ import { redirect } from "next/navigation";
 
 const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
   const { userId } = auth();
-  // Middleware protects /manage routes; if there's no userId here,
-  // return PageNotFound instead of redirecting to avoid double redirects.
-  if (!userId) return <PageNotFound />;
+  if (!userId) return redirect("/sign-in");
   const user = await getUserInfo({ userId });
   if (user && user.role !== EUserRole.ADMIN) return <PageNotFound />;
   return <div>{children}</div>;
