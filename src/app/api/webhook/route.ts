@@ -7,10 +7,14 @@ import { NextResponse } from "next/server";
 import { Webhook } from "svix";
 
 export async function POST(req: Request) {
+  console.log("Webhook POST received");
   const svix_id = headers().get("svix-id") ?? "";
   const svix_timestamp = headers().get("svix-timestamp") ?? "";
   const svix_signature = headers().get("svix-signature") ?? "";
+  console.log("svix headers:", { svix_id, svix_timestamp, svix_signature });
+
   if (!process.env.WEBHOOK_SECRET) {
+    console.error("WEBHOOK_SECRET is not set");
     throw new Error("WEBHOOK_SECRET is not set");
   }
   if (!svix_id || !svix_timestamp || !svix_signature) {
