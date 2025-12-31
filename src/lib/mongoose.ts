@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use server";
 
 import mongoose from "mongoose";
@@ -18,7 +19,6 @@ export const connectToDatabase = async () => {
     });
     isConnected = true;
     console.log("Using new database connection");
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     console.log("Error while connecting to database");
   }
